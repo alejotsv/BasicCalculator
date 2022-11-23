@@ -44,7 +44,8 @@ public class BasicCalculator extends JFrame implements ActionListener, FocusList
             result = floatResult.toString();
             resultLabel.setText(result);
         } else{
-            result = "You're subtracting";
+            Float floatResult = Float.parseFloat(num1.getText()) - Float.parseFloat(num2.getText());
+            result = floatResult.toString();
             resultLabel.setText(result);
         }
     }
