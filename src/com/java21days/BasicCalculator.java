@@ -42,11 +42,18 @@ public class BasicCalculator extends JFrame implements ActionListener, FocusList
 
     @Override
     public void focusGained(FocusEvent focusEvent) {
-
+        JTextField selected = (JTextField) focusEvent.getSource();
+        selected.setText("");
     }
 
     @Override
     public void focusLost(FocusEvent focusEvent) {
-
+        JTextField unselected = (JTextField) focusEvent.getSource();
+        try {
+            Float number = Float.parseFloat(unselected.getText());
+            System.out.println((number));
+        } catch (NumberFormatException nfe){
+            unselected.setText("0");
+        }
     }
 }
