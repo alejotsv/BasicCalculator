@@ -10,7 +10,13 @@ public class BasicCalculator extends JFrame implements ActionListener {
     Float result;
     JLabel resultLabel;
 
+    BasicCalculator(){
+        super("Basic Calculator");
+        setSize(dim);
+        setLocationRelativeTo(null);
 
+        setVisible(true);
+    }
 
 
 
