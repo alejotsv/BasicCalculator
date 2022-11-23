@@ -18,11 +18,15 @@ public class BasicCalculator extends JFrame implements ActionListener, FocusList
         setLocationRelativeTo(null);
         JPanel panel = new JPanel();
         JTextField num1 = new JTextField("0", 6);
+        num1.addFocusListener(this);
         JTextField num2 = new JTextField("0", 6);
+        num2.addFocusListener(this);
         panel.add(num1);
         panel.add(num2);
         JButton add = new JButton("+");
+        add.addActionListener(this);
         JButton subtract = new JButton("-");
+        subtract.addActionListener(this);
         panel.add(add);
         panel.add(subtract);
         resultLabel = new JLabel("Result here");
@@ -30,9 +34,6 @@ public class BasicCalculator extends JFrame implements ActionListener, FocusList
         add(panel);
         setVisible(true);
     }
-
-
-
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
