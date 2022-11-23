@@ -9,17 +9,18 @@ import java.awt.event.FocusListener;
 
 public class BasicCalculator extends JFrame implements ActionListener, FocusListener {
     Dimension dim = new Dimension(100, 150);
-    Float result;
+    String result;
     JLabel resultLabel;
+    JTextField num1, num2;
 
     BasicCalculator(){
         super("Basic Calculator");
         setSize(dim);
         setLocationRelativeTo(null);
         JPanel panel = new JPanel();
-        JTextField num1 = new JTextField("0", 6);
+        num1 = new JTextField("0", 8);
         num1.addFocusListener(this);
-        JTextField num2 = new JTextField("0", 6);
+        num2 = new JTextField("0", 8);
         num2.addFocusListener(this);
         panel.add(num1);
         panel.add(num2);
@@ -29,7 +30,8 @@ public class BasicCalculator extends JFrame implements ActionListener, FocusList
         subtract.addActionListener(this);
         panel.add(add);
         panel.add(subtract);
-        resultLabel = new JLabel("Result here");
+        result = "Result here";
+        resultLabel = new JLabel(result);
         panel.add(resultLabel);
         add(panel);
         setVisible(true);
@@ -37,7 +39,14 @@ public class BasicCalculator extends JFrame implements ActionListener, FocusList
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        System.out.println("Action performed");
+        if(actionEvent.getActionCommand() == "+"){
+            Float floatResult = Float.parseFloat(num1.getText()) + Float.parseFloat(num2.getText());
+            result = floatResult.toString();
+            resultLabel.setText(result);
+        } else{
+            result = "You're subtracting";
+            resultLabel.setText(result);
+        }
     }
 
     @Override
